@@ -10,7 +10,7 @@ const InputOutputPanel = ({
   onRunCode,
 }) => {
   return (
-    <div className="w-96 bg-[#252526] border-l border-[#1e1e1e] flex flex-col absolute right-0 top-24 bottom-0 z-50">
+    <div className="w-80 bg-[#252526] border-l border-[#1e1e1e] flex flex-col absolute right-0 top-28 bottom-0 z-50">
       <div className="flex-1 p-4 border-b border-[#1e1e1e] min-h-[50%]">
         <div className="flex justify-between items-center mb-2">
           <span className="text-gray-300 text-sm font-medium">INPUT</span>

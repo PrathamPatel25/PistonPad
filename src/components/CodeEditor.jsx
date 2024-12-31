@@ -110,7 +110,7 @@ const CodeEditor = ({
             Input/Output
           </button>
         </div>
-        <div className="text-sm text-gray-400 mr-96">
+        <div className="text-sm text-gray-400 mr-80">
           {file?.fileName} - {file?.language}
         </div>
         {/* {console.log(file)} */}
