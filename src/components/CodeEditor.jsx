@@ -119,7 +119,7 @@ const CodeEditor = ({
               vertical: "visible",
               horizontal: "visible",
               useShadows: false,
-              verticalScrollbarSize: 15,
+              verticalScrollbarSize: 10,
               horizontalScrollbarSize: 10,
             },
             automaticLayout: true,
@@ -129,7 +129,7 @@ const CodeEditor = ({
             formatOnType: true,
           }}
           height="100%"
-          width="78%"
+          width="75%"
           theme="vs-dark"
           language={file.language}
           value={file.content}
