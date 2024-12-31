@@ -24,7 +24,7 @@ const InputOutputPanel = ({
           </button>
         </div>
         <textarea
-          className="w-full h-40 bg-[#1e1e1e] text-gray-300 p-2 rounded border border-[#2d2d2d] resize-none focus:outline-none focus:border-[#0e639c]"
+          className="w-full h-44 bg-[#1e1e1e] text-gray-300 p-2 rounded border border-[#2d2d2d] resize-none focus:outline-none focus:border-[#0e639c]"
           value={userInput}
           onChange={(e) => onInputChange(e.target.value)}
           placeholder="Enter input here..."
