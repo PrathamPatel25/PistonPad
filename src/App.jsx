@@ -215,7 +215,6 @@ const App = () => {
           <CodeEditor
             file={activeFile}
             language={language}
-            // onLanguageSelect={handleLanguageSelect}
             onCodeChange={handleCodeChange}
             onSave={handleFileSave}
             editorRef={editorRef}
