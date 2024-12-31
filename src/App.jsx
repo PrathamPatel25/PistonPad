@@ -196,7 +196,7 @@ const App = () => {
       <div className="h-12 bg-[#2d2d2d] flex items-center justify-between px-4 border-b border-[#1e1e1e]">
         <div className="flex items-center space-x-2">
           <h1 className="text-white font-semibold">PistonPad</h1>
-          <img src="../public/code.ico" alt="Logo" className="h-6 w-6" />
+          <img src="/code.ico" alt="Logo" className="h-6 w-6" />
         </div>
       </div>
 

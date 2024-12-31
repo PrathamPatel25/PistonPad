@@ -10,7 +10,7 @@ const InputOutputPanel = ({
   onRunCode,
 }) => {
   return (
-    <div className="w-80 bg-[#252526] border-l border-[#1e1e1e] flex flex-col absolute right-0">
+    <div className="w-80 bg-[#252526] border-l border-[#1e1e1e] flex flex-col">
       <div className="flex-1 p-4 border-b border-[#1e1e1e]">
         <div className="flex justify-between items-center mb-2">
           <span className="text-gray-300 text-sm font-medium">INPUT</span>
@@ -24,7 +24,7 @@ const InputOutputPanel = ({
           </button>
         </div>
         <textarea
-          className="w-full h-72 bg-[#1e1e1e] text-gray-300 p-2 rounded border border-[#2d2d2d] resize-none focus:outline-none focus:border-[#0e639c]"
+          className="w-full h-40 bg-[#1e1e1e] text-gray-300 p-2 rounded border border-[#2d2d2d] resize-none focus:outline-none focus:border-[#0e639c]"
           value={userInput}
           onChange={(e) => onInputChange(e.target.value)}
           placeholder="Enter input here..."
@@ -34,7 +34,7 @@ const InputOutputPanel = ({
       <div className="flex-1 p-4">
         <span className="text-gray-300 text-sm font-medium">OUTPUT</span>
         <div
-          className={`mt-2 p-2 h-64 overflow-auto font-mono text-sm rounded border ${
+          className={`mt-2 p-2 h-40 overflow-auto font-mono text-sm rounded border ${
             isError
               ? "border-red-500 text-red-400"
               : "border-[#2d2d2d] text-gray-300"
