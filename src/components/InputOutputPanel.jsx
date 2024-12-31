@@ -10,8 +10,8 @@ const InputOutputPanel = ({
   onRunCode,
 }) => {
   return (
-    <div className="w-72 bg-[#252526] border-l border-[#1e1e1e] flex flex-col absolute right-0">
-      <div className="flex-1 p-4 border-b border-[#1e1e1e]">
+    <div className="w-96 bg-[#252526] border-l border-[#1e1e1e] flex flex-col absolute right-0 top-24 bottom-0 z-50">
+      <div className="flex-1 p-4 border-b border-[#1e1e1e] min-h-[50%]">
         <div className="flex justify-between items-center mb-2">
           <span className="text-gray-300 text-sm font-medium">INPUT</span>
           <button
@@ -24,17 +24,17 @@ const InputOutputPanel = ({
           </button>
         </div>
         <textarea
-          className="w-full h-44 bg-[#1e1e1e] text-gray-300 p-2 rounded border border-[#2d2d2d] resize-none focus:outline-none focus:border-[#0e639c]"
+          className="w-full h-[calc(100%-40px)] bg-[#1e1e1e] text-gray-300 p-2 rounded border border-[#2d2d2d] resize-none focus:outline-none focus:border-[#0e639c]"
           value={userInput}
           onChange={(e) => onInputChange(e.target.value)}
           placeholder="Enter input here..."
         />
       </div>
 
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 min-h-[50%]">
         <span className="text-gray-300 text-sm font-medium">OUTPUT</span>
         <div
-          className={`mt-2 p-2 h-40 overflow-auto font-mono text-sm rounded border ${
+          className={`mt-2 p-2 h-[calc(100%-32px)] overflow-auto font-mono text-sm rounded border ${
             isError
               ? "border-red-500 text-red-400"
               : "border-[#2d2d2d] text-gray-300"

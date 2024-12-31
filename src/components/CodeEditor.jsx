@@ -11,6 +11,8 @@ const CodeEditor = ({
   editorRef,
   onSave,
   isSaving,
+  setIsOpen,
+  isOpen,
 }) => {
   const [saveStatus, setSaveStatus] = useState("");
 
@@ -101,8 +103,14 @@ const CodeEditor = ({
           >
             Export
           </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={`px-3 py-1.5 rounded flex items-center space-x-2 text-sm bg-blue-600 hover:bg-blue-700 text-white`}
+          >
+            Input/Output
+          </button>
         </div>
-        <div className="text-sm text-gray-400 mr-80">
+        <div className="text-sm text-gray-400 mr-96">
           {file?.fileName} - {file?.language}
         </div>
         {/* {console.log(file)} */}
@@ -129,7 +137,7 @@ const CodeEditor = ({
             formatOnType: true,
           }}
           height="100%"
-          width="75%"
+          width="100%"
           theme="vs-dark"
           language={file.language}
           value={file.content}
