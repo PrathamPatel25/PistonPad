@@ -107,5 +107,4 @@ VITE_APPWRITE_COLLECTION_ID=<your_appwrite_collection_id>
 
 For any queries or feedback, feel free to reach out:
 
-- **Email**: [prathampatel5044@gmail.com](mailto:prathampatel5044@gmail.com)
 - **LinkedIn**: [Profile](https://www.linkedin.com/in/pratham-patel-0920-/)

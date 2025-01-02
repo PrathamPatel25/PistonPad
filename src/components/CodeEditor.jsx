@@ -11,8 +11,6 @@ const CodeEditor = ({
   editorRef,
   onSave,
   isSaving,
-  setIsOpen,
-  isOpen,
 }) => {
   const [saveStatus, setSaveStatus] = useState("");
 
@@ -70,13 +68,13 @@ const CodeEditor = ({
 
   return (
     <div className="flex-1 flex flex-col" onKeyDown={handleKeyDown}>
-      <div className="p-2 bg-[#252526] border-b border-[#1e1e1e] flex items-center justify-between">
+      <div className="p-2 bg-[#252526] h-10 border-b border-[#1e1e1e] flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <Dropdown />
           <button
             onClick={handleSave}
             disabled={isSaving || saveStatus === "saving"}
-            className={`px-3 py-1.5 rounded flex items-center space-x-2 text-sm ${
+            className={`px-3 py-1 rounded flex items-center space-x-2 text-sm ${
               saveStatus === "saving"
                 ? "bg-yellow-600 text-white cursor-wait"
                 : saveStatus === "saved"
@@ -99,18 +97,12 @@ const CodeEditor = ({
           </button>
           <button
             onClick={handleExport}
-            className={`px-3 py-1.5 rounded flex items-center space-x-2 text-sm bg-blue-600 hover:bg-blue-700 text-white`}
+            className={`px-3 py-1 rounded flex items-center space-x-2 text-sm bg-blue-600 hover:bg-blue-700 text-white`}
           >
             Export
           </button>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`px-3 py-1.5 rounded flex items-center space-x-2 text-sm bg-blue-600 hover:bg-blue-700 text-white`}
-          >
-            Input/Output
-          </button>
         </div>
-        <div className="text-sm text-gray-400 mr-80">
+        <div className="text-sm text-gray-400">
           {file?.fileName} - {file?.language}
         </div>
         {/* {console.log(file)} */}
@@ -118,7 +110,14 @@ const CodeEditor = ({
       <div className="flex-1 relative">
         <Editor
           options={{
-            minimap: { enabled: false },
+            minimap: {
+              enabled: true,
+              autohide: false,
+              scale: 1,
+              size: "fit",
+              showSlider: "mouseover",
+              side: "right",
+            },
             scrollBeyondLastLine: false,
             fontSize: 14,
             lineNumbers: "on",
@@ -139,11 +138,18 @@ const CodeEditor = ({
           height="100%"
           width="100%"
           theme="vs-dark"
-          language={file.language}
+          language={
+            file.language === "c++"
+              ? "cpp"
+              : file.language === "typeScript"
+              ? "typescript"
+              : file.language
+          }
           value={file.content}
           onMount={(editor) => {
             editorRef.current = editor;
             editor.focus();
+            monaco.editor.EditorZoom.setZoomLevel(-1);
           }}
           onChange={(value) => {
             onCodeChange?.(value);

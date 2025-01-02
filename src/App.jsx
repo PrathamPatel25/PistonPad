@@ -16,7 +16,6 @@ const App = () => {
   const [isError, setIsError] = useState(false);
   const [userInput, setUserInput] = useState("");
   const [language, setLanguage] = useState("c++");
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -220,21 +219,17 @@ const App = () => {
             onSave={handleFileSave}
             editorRef={editorRef}
             isSaving={isLoading}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
           />
         )}
 
-        {isOpen && (
-          <InputOutputPanel
-            userInput={userInput}
-            onInputChange={setUserInput}
-            output={output}
-            isLoading={isLoading}
-            isError={isError}
-            onRunCode={handleRunCode}
-          />
-        )}
+        <InputOutputPanel
+          userInput={userInput}
+          onInputChange={setUserInput}
+          output={output}
+          isLoading={isLoading}
+          isError={isError}
+          onRunCode={handleRunCode}
+        />
       </div>
     </div>
   );

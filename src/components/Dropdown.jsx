@@ -9,10 +9,10 @@ const Dropdown = () => {
   };
 
   return (
-    <div className="language-selector">
+    <div>
       <div className="relative w-48">
         <button
-          className="px-4 py-2 bg-gray-800 text-white rounded-md focus:outline-none"
+          className="px-2 py-1 bg-gray-800 text-white rounded-md focus:outline-none"
           onClick={handleToggle}
         >
           Supported Languages
