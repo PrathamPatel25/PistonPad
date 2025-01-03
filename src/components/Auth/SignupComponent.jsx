@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import Button from "./Button";
 import Input from "./Input";
 import { motion } from "framer-motion";
+import conf from "../../conf/conf";
 
 function SignupComponent() {
   const navigate = useNavigate();
@@ -19,6 +20,16 @@ function SignupComponent() {
     setError("");
     setIsLoading(true);
     try {
+      const response = await fetch(
+        `https://emailvalidation.abstractapi.com/v1/?api_key=${conf.abstractApiKey}&email=${data.email}`
+      );
+      const data = await response.json();
+
+      if (data.deliverability != "DELIVERABLE") {
+        setError("Email address not found.");
+        return;
+      }
+
       const userData = await authService.createAccount(data);
       if (userData) {
         const currentUser = await authService.getCurrentUser();
