@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Play, Loader2, X, Maximize2, Minimize2, Trash2 } from "lucide-react";
+import Loader from "../Loader";
 
 const InputOutputPanel = ({
   userInput,
@@ -110,10 +111,7 @@ const InputOutputPanel = ({
             } transition-colors`}
           >
             {isLoading ? (
-              <div className="flex items-center gap-2 text-gray-400">
-                <Loader2 className="w-4 h-4 animate-spin" />
-                Running...
-              </div>
+              <Loader text="Loading" textColor="text-white" />
             ) : output ? (
               output.map((line, i) => (
                 <div key={i} className="font-mono">

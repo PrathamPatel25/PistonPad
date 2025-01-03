@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { File, Plus, Check, X, Trash2, Edit2 } from "lucide-react";
-import { ALLOWED_EXTENSIONS } from "../utils/constants";
+import { ALLOWED_EXTENSIONS } from "../../utils/constants";
 
 const FileExplorer = ({
   files,

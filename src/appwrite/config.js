@@ -1,6 +1,5 @@
-// Service.js
 import conf from "../conf/conf.js";
-import { Client, Databases } from "appwrite";
+import { Client, Databases, Query } from "appwrite";
 
 export class Service {
   client = new Client();
@@ -15,7 +14,14 @@ export class Service {
     this.databases = new Databases(this.client);
   }
 
-  async createFile({ fileId, appwriteId, fileName, content, language }) {
+  async createFile({
+    fileId,
+    appwriteId,
+    fileName,
+    content,
+    language,
+    userId,
+  }) {
     try {
       const response = await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -26,6 +32,7 @@ export class Service {
           fileName,
           content,
           language,
+          userId,
         }
       );
       return response;
@@ -35,7 +42,10 @@ export class Service {
     }
   }
 
-  async updateFile(appwriteId, { fileId, fileName, content, language }) {
+  async updateFile(
+    appwriteId,
+    { fileId, fileName, content, language, userId }
+  ) {
     try {
       const response = await this.databases.updateDocument(
         conf.appwriteDatabaseId,
@@ -46,6 +56,7 @@ export class Service {
           fileName,
           content,
           language,
+          userId,
         }
       );
       return response;
@@ -69,15 +80,17 @@ export class Service {
     }
   }
 
-  async getFiles() {
+  async getUserFiles(userId) {
     try {
+      const queries = [Query.equal("userId", userId)];
       const response = await this.databases.listDocuments(
         conf.appwriteDatabaseId,
-        conf.appwriteCollectionId
+        conf.appwriteCollectionId,
+        queries
       );
       return response.documents;
     } catch (error) {
-      console.error("Appwrite service :: getFiles :: error", error);
+      console.error("Appwrite service :: getUserFiles :: error", error);
       throw error;
     }
   }

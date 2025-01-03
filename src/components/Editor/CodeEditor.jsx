@@ -3,6 +3,7 @@ import { Editor } from "@monaco-editor/react";
 import Dropdown from "./Dropdown";
 import { Save } from "lucide-react";
 import JSZip from "jszip";
+import Loader from "../Loader";
 
 const CodeEditor = ({
   file,
@@ -157,7 +158,7 @@ const CodeEditor = ({
               setSaveStatus("");
             }
           }}
-          loading={<div className="text-gray-400">Loading editor...</div>}
+          loading={<Loader text="Loading editor..." textColor="text-white" />}
         />
       </div>
     </div>

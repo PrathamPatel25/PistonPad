@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LANGUAGE_VERSIONS } from "../utils/constants";
+import { LANGUAGE_VERSIONS } from "../../utils/constants";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
