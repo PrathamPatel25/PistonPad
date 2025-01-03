@@ -3,7 +3,7 @@ import { Editor } from "@monaco-editor/react";
 import Dropdown from "./Dropdown";
 import { Save } from "lucide-react";
 import JSZip from "jszip";
-import Loader from "../Loader";
+import { Loader2 } from "lucide-react";
 
 const CodeEditor = ({
   file,
@@ -158,7 +158,14 @@ const CodeEditor = ({
               setSaveStatus("");
             }
           }}
-          loading={<Loader text="Loading editor..." textColor="text-white" />}
+          loading={
+            <div className="flex items-center justify-center h-screen text-white">
+              <div className="flex items-center space-x-4">
+                <Loader2 className="animate-spin" />
+                <span>Loading...</span>
+              </div>
+            </div>
+          }
         />
       </div>
     </div>
