@@ -19,14 +19,18 @@ function SignupComponent() {
   const create = async (data) => {
     setError("");
     setIsLoading(true);
-    try {
-      const response = await fetch(
-        `https://emailvalidation.abstractapi.com/v1/?api_key=${conf.abstractApiKey}&email=${data.email}`
-      );
-      const data = await response.json();
+    // console.log(data);
 
-      if (data.deliverability != "DELIVERABLE") {
-        setError("Email address not found.");
+    try {
+      const { email } = data;
+      const response = await fetch(
+        `https://emailvalidation.abstractapi.com/v1/?api_key=${conf.abstractApiKey}&email=${email}`
+      );
+      const result = await response.json();
+
+      if (result.deliverability != "DELIVERABLE") {
+        setError("Email address not found.Please enter valid email address !");
+        setIsLoading(false);
         return;
       }
 
